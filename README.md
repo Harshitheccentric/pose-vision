@@ -6,6 +6,11 @@ Works on webcam or video files, overlays a clean HUD, and can log per-frame even
 > **TL;DR** → Plug camera/video in → YOLOv8 (PPE + Pose) → rule engine → annotated video & JSON/CSV events.
 
 ---
+## Demo(screen recording)
+
+https://github.com/user-attachments/assets/cfacd6e7-adf3-48ca-b863-fad9ba254547
+
+---
 
 ## ✨ Features
 
@@ -137,15 +142,15 @@ python scripts/video_pipeline.py \
 
 ```mermaid
 flowchart LR
-  A[Video/Webcam Source] --> B[Frame Grab]
-  B --> C1[YOLOv8-PPE Detection]
-  B --> C2[YOLOv8-Pose Estimation]
-  C1 --> D[Fusion & Association<br/>(Person ↔ PPE overlap)]
+  A[Video or Webcam Source] --> B[Frame Grab]
+  B --> C1[YOLOv8 PPE Detection]
+  B --> C2[YOLOv8 Pose Estimation]
+  C1 --> D[Fusion and Association person to PPE overlap]
   C2 --> D
-  D --> E[Posture Module<br/>(angles & heuristics)]
+  D --> E[Posture Module angles and heuristics]
   E --> F[Compliance Rule Engine]
-  F --> G[HUD Overlay<br/>(bboxes, skeletons, banners)]
-  F --> H[Event Logger<br/>(JSON/CSV)]
+  F --> G[HUD Overlay boxes skeletons banners]
+  F --> H[Event Logger JSON or CSV]
   G --> I[Annotated Video Output]
   H --> I
 ```
